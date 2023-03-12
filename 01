@@ -1,0 +1,43 @@
+#include <stdio.h>
+
+int BinarySearch(int arr[], int awal, int akhir, int cari)
+{
+    while (awal <= akhir)
+	{
+        int tengah = awal + (akhir - awal) / 2;
+
+        // jika di tengah
+        if (arr[tengah] == cari)
+            return tengah;
+
+        // jika lebih besar dari yang di tengah
+        if (arr[tengah] < cari)
+            awal = tengah + 1;
+
+        // jika lebih kecil dari yang di tengah
+        else
+            akhir = tengah - 1;
+    }
+
+    // jika yang dicari tidak di index
+    return -1;
+}
+
+int main()
+{
+    int arr[] = {0,1,2,3,4,5,6,7,8,9,10};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    int cari;
+
+    printf("Masukkan angka yang dicari di index: ");
+    scanf("%d", &cari);
+
+    int hasil = BinarySearch(arr, 0, n-1, cari);
+
+    if (hasil == -1)
+        printf("Angka %d tidak ada di index", cari);
+    else
+        printf("Angka %d ada di di index ke-%d",cari,hasil);
+
+    return 0;
+}
