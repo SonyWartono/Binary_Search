@@ -3,31 +3,31 @@
 int BinarySearch(int arr[], int awal, int akhir, int cari)
 {
 	while (awal <= akhir)
-		{
+	{
 		// mencari tengah
 		int tengah = awal + (akhir - awal) / 2;
-	
+
 		// jika di tengah
 		if (arr[tengah] == cari)
-	 		{
-	 			return tengah;
-			}
-				
-		// jika lebih besar dari yang di tengah
-		if (arr[tengah] < cari)
-	 		{
-	 			awal = tengah + 1;
-			}
-			
-		// jika lebih kecil dari yang di tengah
-		else
-			{
-				akhir = tengah - 1;
-			} 
+		{
+			return tengah;
 		}
 
-		// jika yang dicari tidak di index
-		return -1;
+		// jika lebih besar dari yang di tengah
+		if (arr[tengah] < cari)
+		{
+			awal = tengah + 1;
+		}
+
+		// jika lebih kecil dari yang di tengah
+		else
+		{
+			akhir = tengah - 1;
+		} 
+	}
+
+	// jika yang dicari tidak di index
+	return -1;
 }
 
 int main()
@@ -48,14 +48,14 @@ int main()
 	
 	// jika input tidak ada di index
 	if (hasil == -1)
-		{
-			printf("Angka %d tidak ada di index", cari);
-		}
+	{
+		printf("Angka %d tidak ada di index", cari);
+	}
 	// jika input ada di index
 	else
- 		{
- 			printf("Angka %d ada di di index ke-%d",cari,hasil+1);
-		}
+	{
+		printf("Angka %d ada di di index ke-%d",cari,hasil+1);
+	}
 
 	return 0;
 }
